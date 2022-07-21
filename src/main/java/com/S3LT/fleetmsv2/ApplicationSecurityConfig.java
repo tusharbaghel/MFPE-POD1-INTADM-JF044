@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -30,7 +31,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login", "/resources/**", "/css/**", "/fonts/**", "/img/**").permitAll()
                 .antMatchers("/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
                 .antMatchers("/users/addNew").permitAll()
-                .antMatchers("/security/user/Edit/**").hasAuthority("ADMIN")
+                .antMatchers("/security/user/Edit/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

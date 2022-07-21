@@ -54,5 +54,6 @@ public class ApplicationController {
     public String profile(){
         return "/assets/profile";
     }
+   
 
 }

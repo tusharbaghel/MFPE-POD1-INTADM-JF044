@@ -1,5 +1,5 @@
 const express = require('express');
-const client = require('./connection.js')
+import { query } from './connection.js';
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.listen(3000, () => {
 app.get('/countries', (req, res) => {
     console.log('A user just requested list of countries');
 
-    client.query(`Select * from fleetdb.Country`, (err, result) => {
+    query(`Select * from testfleetdb.Country`, (err, result) => {
         if (err) {
             console.log(err.message);
         } else {
